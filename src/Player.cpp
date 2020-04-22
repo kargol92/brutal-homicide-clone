@@ -2,14 +2,45 @@
 #include "World.h"
 
 extern World world;
-extern int frame;
+
+Player::Player()
+{
+    direction = Direction::right;
+    edge = Edge::up_edge;
+    map_x = 40;
+    map_y = 40;
+    map_X = map_x / World::tile_w;
+    map_Y = map_y / World::tile_h;
+    map_x1 = map_x + width;
+    map_y1 = map_y + height;
+    map_X1 = map_x1 / World::tile_w;
+    map_Y1 = map_y1 / World::tile_h;
+    screen_x = map_x;
+    screen_y = map_y;
+
+    move = false;
+    run_speed = 1;
+    collision = false;
+
+    ammo = 0;
+    grenades = 0;
+    energy = 0;
+    lives = 0;
+    money = 0;
+    weapon = 0;
+}
+
+Player::Player(int x, int y)
+{
+
+}
 
 void Player::load_bitmap()
 {
     bitmap = load_bmp ("graphics/player.bmp", default_palette);
 }
 
-void Player::draw_bitmap(BITMAP* &buffer)
+void Player::draw(BITMAP* &buffer, int frame)
 {
 	if (move == false)
 	{
@@ -106,57 +137,57 @@ void Player::check_key()
 	if( key[KEY_UP] && key[KEY_RIGHT])
     {
 		move = true;
-        direction = up_right;
+        direction = Direction::up_right;
 		go_up();
         go_right();
     }
     else if( key[KEY_RIGHT] && key[KEY_DOWN])
     {
 		move = true;
-		direction = right_down;
+		direction = Direction::right_down;
         go_right();
         go_down();
     }
     else if( key[KEY_DOWN] && key[KEY_LEFT])
 	{
 		move = true;
-		direction = down_left;
+		direction = Direction::down_left;
         go_down();
         go_left();
     }
     else if( key[KEY_LEFT] && key[KEY_UP])
     {
 		move = true;
-		direction = left_up;
+		direction = Direction::left_up;
         go_left();
         go_up();
     }
     else if (key[KEY_UP] && (collision == false || edge == up_edge || edge == left_edge || edge == right_edge))
 	{
 		move = true;
-		direction = up;
-		edge = down_edge;
+		direction = Direction::up;
+		edge = Edge::down_edge;
         go_up();
     }
     else if( key[KEY_RIGHT] && (collision == false || edge == right_edge))
 	{
 		move = true;
-		direction = right;
-		edge = left_edge;
+		direction = Direction::right;
+		edge = Edge::left_edge;
         go_right();
     }
     else if( key[KEY_DOWN] && (collision == false || edge == down_edge || edge == left_edge || edge == right_edge))
     {
 		move = true;
-		direction = down;
-		edge = up_edge;
+		direction = Direction::down;
+		edge = Edge::up_edge;
         go_down();
     }
     else if( key[KEY_LEFT] && (collision == false || edge == left_edge))
 	{
 		move = true;
-		direction = left;
-		edge = right_edge;
+		direction = Direction::left;
+		edge = Edge::right_edge;
         go_left();
     }
     else if( key[KEY_SPACE] )
@@ -168,40 +199,49 @@ void Player::check_key()
 
 void Player::go_up()
 {
-    map_y = map_y - add;
+    map_y -= run_speed;
     if (map_y <= (World::screen_h / 2) - 1)
-        screen_y = screen_y - add;
+        screen_y -= run_speed;
     else if (map_y >= (World::map_h - World::screen_h / 2) - 1)
-        screen_y = screen_y - add;
+        screen_y -= run_speed;
     else
-        scroll_y = scroll_y - add;
+        scroll_y -= run_speed;
 }
 
 void Player::go_down()
 {
-    map_y = map_y + add;
-    if (map_y <= (World::screen_h/2)) screen_y = screen_y + add;
-    else if (map_y >= (World::map_h - World::screen_h / 2)) screen_y = screen_y + add;
-    else scroll_y = scroll_y + add;
+    map_y += run_speed;
+    if (map_y <= (World::screen_h / 2))
+        screen_y += run_speed;
+    else if (map_y >= (World::map_h - World::screen_h / 2))
+        screen_y += run_speed;
+    else
+        scroll_y += run_speed;
 }
 
 void Player::go_left()
 {
-    map_x = map_x - add;
-    if (map_x <= (World::screen_w/2)-1) screen_x = screen_x - add;
-    else if (map_x >= (World::map_w-World::screen_w/2)-1) screen_x = screen_x - add;
-    else scroll_x = scroll_x - add;
+    map_x -= run_speed;
+    if (map_x <= (World::screen_w/2) - 1)
+        screen_x -= run_speed;
+    else if (map_x >= (World::map_w-World::screen_w / 2) - 1)
+        screen_x -= run_speed;
+    else
+        scroll_x -= run_speed;
 }
 
 void Player::go_right()
 {
-    map_x = map_x + add;
-    if (map_x <= (World::screen_w/2)) screen_x = screen_x + add;
-    else if (map_x >= (World::map_w - World::screen_w / 2)) screen_x = screen_x + add;
-    else scroll_x = scroll_x + add;
+    map_x += run_speed;
+    if (map_x <= (World::screen_w / 2))
+        screen_x += run_speed;
+    else if (map_x >= (World::map_w - World::screen_w / 2))
+        screen_x += run_speed;
+    else
+        scroll_x += run_speed;
 }
 
-void Player::calculate_coords_and_stuff()
+void Player::update()
 {
     map_x1 = map_x + width;
 	map_y1 = map_y + height;

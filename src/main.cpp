@@ -1,5 +1,6 @@
 #include <allegro.h>
-#include "Map.h"
+#include "World.h"
+#include "Player.h"
 
 // TIMER
 ////////
@@ -12,29 +13,36 @@ LOCK_VARIABLE(speed);
 LOCK_FUNCTION(increment_speed);
 
 
-#include "global_variables.h"
-#include "map.h"
-#include "World.h"
-#include "Player.h"
-
 World world;
-Player player;
+Player* player1;
 
-
-void display_map(BITMAP * & bg, BITMAP * & tiles);
-void display_coords_and_stuff(BITMAP * & buffer);
-
-//#include "check.h"
-#include "display.h"
+unsigned char map[World::map_H][World::map_W] =
+{
+	{100,100,100,100,100,100,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200,200},
+    {100, 0 , 0 , 0 , 0 ,120, 0 , 0 , 0 , 0 , 0 ,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {100,200,200, 1 , 2 ,100,200,200,200,200, 0 ,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {100, 3 ,200, 2 , 2 ,100,200, 0 , 0 ,200, 0 ,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {100, 0 , 0 , 0 , 0 ,200, 0 , 0 , 0 ,200, 0 ,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {100,110,100,100,110,100,200,200,200,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {200, 0 , 0 , 0 , 0 ,200, 0 , 0 , 0 , 0 ,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {200,200,200, 0 ,200,200,200,200,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {200, 0 , 0 , 0 ,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {200,200,200,200,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {200, 0 ,200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+    {200, 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
+};
 
 void init();
 void run();
 void exit();
+void display_map(BITMAP * & bg, BITMAP * & tiles);
+void display_coords_and_stuff(BITMAP * & buffer);
 
 int main(int argc, char *argv[])
 {
+    player1 = new Player();
     init();
-    //CPlayer a;
     run();
     exit();
     return 0;
@@ -53,10 +61,10 @@ void init()
 
 void run()
 {
+    BITMAP *background = create_bitmap (World::map_w, World::map_h);
     BITMAP *buffer = create_bitmap (World::map_w, World::map_h);
-    BITMAP *bg = create_bitmap (World::map_w, World::map_h);
     world.load_bitmap();
-    player.load_bitmap();
+    player1->load_bitmap();
 
     while (!key[KEY_ESC])
     {
@@ -66,22 +74,26 @@ void run()
             frame++;
             if (frame > 100) frame = 0;
 		}
-		player.calculate_coords_and_stuff();
-        player.check_key();
-        display_map (buffer, world.tiles);
-        player.draw_bitmap(buffer);
-        display_coords_and_stuff(buffer);
+
+        world.draw (buffer, player1);
+        player1->draw (buffer, frame);
+        player1->check_key();
+        player1->update();
+        world.display_info(buffer, player1, frame);
         blit(buffer, screen, 0,0,0,0, World::map_w, World::map_h);
         //rest(1);
     }
-    remove_int( increment_speed);
-    destroy_bitmap(buffer);
-    destroy_bitmap(bg);
-    player.delete_bitmap();
+
+    player1->delete_bitmap();
     world.delete_bitmap();
+    destroy_bitmap(buffer);
+    destroy_bitmap(background);
+
+    delete player1;
 }
 
 void exit()
 {
+    remove_int (increment_speed);
     allegro_exit();
 }

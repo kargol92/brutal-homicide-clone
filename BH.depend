@@ -82,3 +82,34 @@
 
 1587542562 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone/src/check_key.h
 
+1587555395 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/main.cpp
+	<allegro.h>
+	"World.h"
+	"Player.h"
+
+1587536204 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/Map.h
+	<allegro.h>
+
+1587544638 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/global_variables.h
+
+1587536240 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/map.h
+
+1587555415 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/World.h
+	<allegro.h>
+	"Player.h"
+
+1587554746 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/Player.h
+	<allegro.h>
+
+1587544792 /opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/display.h
+
+1587536043 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/Map.cpp
+	"Map.h"
+
+1587555166 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/Player.cpp
+	"Player.h"
+	"World.h"
+
+1587555422 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/World.cpp
+	"World.h"
+

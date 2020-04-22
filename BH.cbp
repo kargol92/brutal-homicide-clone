@@ -18,17 +18,12 @@
 		<Linker>
 			<Add library="alleg" />
 		</Linker>
-		<Unit filename="src/Map.cpp" />
-		<Unit filename="src/Map.h" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Player.h" />
 		<Unit filename="src/World.cpp" />
 		<Unit filename="src/World.h" />
 		<Unit filename="src/check.h" />
-		<Unit filename="src/display.h" />
-		<Unit filename="src/global_variables.h" />
 		<Unit filename="src/main.cpp" />
-		<Unit filename="src/map.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
