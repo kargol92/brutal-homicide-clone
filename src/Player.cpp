@@ -6,7 +6,7 @@ extern World world;
 Player::Player()
 {
     direction = Direction::right;
-    edge = Edge::up_edge;
+    //edge = Edge::up_edge;
     map_x = 40;
     map_y = 40;
     map_X = map_x / World::tile_w;
@@ -19,7 +19,7 @@ Player::Player()
     screen_y = map_y;
 
     move = false;
-    run_speed = 1;
+    run_speed = 0.7;
     collision = false;
 
     ammo = 0;

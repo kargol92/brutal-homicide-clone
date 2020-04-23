@@ -32,18 +32,18 @@ class Player
         char edge;
 
         BITMAP *bitmap;
-        int map_x;
-        int map_y;
+        double map_x;
+        double map_y;
         int map_X;
         int map_Y;
         int map_x1;
         int map_y1;
         int map_X1;
         int map_Y1;
-        int screen_x;
-        int screen_y;
-        int scroll_x;
-        int scroll_y;
+        double screen_x;
+        double screen_y;
+        double scroll_x;
+        double scroll_y;
 
         bool collision;
 
@@ -65,7 +65,7 @@ class Player
 
     private:
         bool move;
-        int run_speed;
+        double run_speed;
 
         char edge_collision;
 

@@ -113,3 +113,22 @@
 1587555422 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/World.cpp
 	"World.h"
 
+1587638738 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Player.cpp
+	"Player.h"
+	"World.h"
+
+1587638761 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Player.h
+	<allegro.h>
+
+1587638408 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/World.h
+	<allegro.h>
+	"Player.h"
+
+1587639323 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/World.cpp
+	"World.h"
+
+1587637930 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/main.cpp
+	<allegro.h>
+	"World.h"
+	"Player.h"
+
