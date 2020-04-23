@@ -113,23 +113,54 @@
 1587555422 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide-clone-v2/src/World.cpp
 	"World.h"
 
-1587642816 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Player.cpp
+1587663124 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Player.cpp
 	"Player.h"
 	"World.h"
 
-1587638761 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Player.h
+1587661203 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Player.h
 	<allegro.h>
 
-1587643188 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/World.h
+1587663327 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/World.h
 	<allegro.h>
 	<fstream>
 	"Player.h"
 
-1587643139 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/World.cpp
+1587663322 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/World.cpp
 	"World.h"
 
-1587643197 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/main.cpp
+1587666328 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/main.cpp
 	<allegro.h>
+	"Menu.h"
+	"Game.h"
+
+1587666779 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Game.cpp
+	"Game.h"
+
+1587665831 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/include/Game.h
+	<allegro.h>
+	<Game_loop.h>
 	"World.h"
 	"Player.h"
+
+1587661203 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/include/Player.h
+	<allegro.h>
+
+1587663327 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/include/World.h
+	<allegro.h>
+	<fstream>
+	"Player.h"
+
+1587666737 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Menu.cpp
+	"Menu.h"
+
+1587666310 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/include/Menu.h
+	<allegro.h>
+	"Game_loop.h"
+	"Game.h"
+
+1587666090 /opt/lampp/htdocs/portfolio/projects/brutal-homicide/include/Game_loop.h
+	<allegro.h>
+
+1587665950 source:/opt/lampp/htdocs/portfolio/projects/brutal-homicide/src/Game_loop.cpp
+	"Game_loop.h"
 

@@ -36,8 +36,8 @@ class Player
         double map_y;
         int map_X;
         int map_Y;
-        int map_x1;
-        int map_y1;
+        double map_x1;
+        double map_y1;
         int map_X1;
         int map_Y1;
         double screen_x;

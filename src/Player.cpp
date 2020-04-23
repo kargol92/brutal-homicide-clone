@@ -19,7 +19,7 @@ Player::Player()
     screen_y = map_y;
 
     move = false;
-    run_speed = 0.7;
+    run_speed = 0.5;
     collision = false;
 
     ammo = 0;

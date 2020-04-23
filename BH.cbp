@@ -18,6 +18,8 @@
 		<Linker>
 			<Add library="alleg" />
 		</Linker>
+		<Unit filename="include/Game.h" />
+		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/Player.h" />
 		<Unit filename="src/World.cpp" />
