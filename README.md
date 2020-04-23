@@ -1,8 +1,9 @@
 Brutal Homicide Clone OOP version
 =================================
-This projects is a clone of this game. I had written the source code. But the graphics I "borrowed" from the original game.
+This project is a clone of the Brutal Homicide (1997 - Amiga). I had written the source code. But the graphics I "borrowed" from the original game.
 
-> "Brutal Homicide was an Amiga 500 game developed during 1995-1997 by Pontus Lundvall and a few of his friends. The game was free and spead mainly via BBS and came to be very apprechiated by the public"
+> Brutal Homicide was an Amiga 500 game developed during 1995-1997 by Pontus Lundvall and a few of his friends. The game was free and spead mainly via BBS and came to be very apprechiated by the public
+
 [https://www.youtube.com/watch?v=_GV_kpBWdSg](https://www.youtube.com/watch?v=_GV_kpBWdSg)
 
 Informations about the original game
