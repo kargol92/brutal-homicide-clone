@@ -1,5 +1,33 @@
 #include "World.h"
 
+void World::load_map()
+{
+    int i = 0;
+    string *lines;
+    fstream file;
+    file.open("map.txt", ios::in);
+
+    if (file.good())
+    {
+        while (!file.eof())
+            i++;
+        file.close();
+    }
+
+    lines = new string[i];
+    i = 0;
+
+    if (file.good())
+    {
+        while (!file.eof())
+        {
+            getline(file, lines[i]);
+            i++;
+        }
+        file.close();
+    }
+}
+
 void World::load_bitmap()
 {
     tiles = load_bmp ("graphics/tiles.bmp", default_palette);
@@ -50,6 +78,7 @@ void World::display_info(BITMAP* &buffer, Player* player1, int frame)
     else if (player1->direction == 6) textprintf_ex(buffer, font, 440, 95, makecol( 255, 255, 128 ), -1, "direction: %d (DOWN-LEFT)", player1->direction );
     else if (player1->direction == 7) textprintf_ex(buffer, font, 440, 95, makecol( 255, 255, 128 ), -1, "direction: %d (LEFT)", player1->direction );
     else if (player1->direction == 8) textprintf_ex(buffer, font, 440, 95, makecol( 255, 255, 128 ), -1, "direction: %d (LEFT-UP)", player1->direction );
+
 	if 		(player1->edge == 1) textprintf_ex(buffer, font, 440, 105, makecol( 255, 255, 128 ), -1, "edge of wall %d (UP)", player1->edge );
     else if (player1->edge == 3) textprintf_ex(buffer, font, 440, 105, makecol( 255, 255, 128 ), -1, "edge of wall %d (RIGHT)", player1->edge );
     else if (player1->edge == 5) textprintf_ex(buffer, font, 440, 105, makecol( 255, 255, 128 ), -1, "edge of wall %d (DOWN)", player1->edge );

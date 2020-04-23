@@ -16,6 +16,7 @@ LOCK_FUNCTION(increment_speed);
 
 int main(int argc, char *argv[])
 {
+    World world;
     Player* player1 = new Player();
 
     allegro_init();
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
     install_int_ex(increment_speed, BPS_TO_TIMER(fps));
 
 
-    World world;
+
 
     BITMAP *background = create_bitmap (World::map_w, World::map_h);
     BITMAP *buffer = create_bitmap (World::map_w, World::map_h);

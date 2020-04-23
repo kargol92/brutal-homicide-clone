@@ -1,7 +1,9 @@
 #ifndef WORLD_H
 #define WORLD_H
 #include <allegro.h>
+#include <fstream>
 #include "Player.h"
+using namespace std;
 
 class World
 {
@@ -29,7 +31,7 @@ public:
     bool grenade_3x4 = false;
     bool first_aid_3x1 = false;
 
-    const unsigned char map[map_H][map_W] =
+    const char map[map_H][map_W] =
     {
         {'#','#','#','#','#','#','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&','&'},
         {'#', 0 , 0 , 0 , 0 ,'|', 0 , 0 , 0 , 0 , 0 ,'&', 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 },
@@ -47,6 +49,7 @@ public:
     };
 
     //World();
+    void load_map();
     void load_bitmap();
     void draw(BITMAP* &buffer, Player* &player);
     void delete_bitmap();

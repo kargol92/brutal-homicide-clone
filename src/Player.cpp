@@ -44,18 +44,18 @@ void Player::draw(BITMAP* &buffer, int frame)
 {
 	if (move == false)
 	{
-		if (direction == up)
+		if (direction == Direction::up)
             masked_blit(bitmap, buffer, 1,1, screen_x, screen_y, 23, 14);
-        else if (direction == down)
+        else if (direction == Direction::down)
             masked_blit(bitmap, buffer, 25,1, screen_x, screen_y, 23, 14);
-        else if (direction == left)
+        else if (direction == Direction::left)
             masked_blit(bitmap, buffer, 49,1, screen_x, screen_y, 14, 23);
-        else if (direction == right)
+        else if (direction == Direction::right)
             masked_blit(bitmap, buffer, 76,1, screen_x, screen_y, 14, 23);
 	}
 	else if (move == true)
     {
-		if (direction == up)
+		if (direction == Direction::up)
 		{
 			if (frame < 20)
                 masked_blit (bitmap, buffer, 1,1, screen_x, screen_y, 23, 14);
@@ -68,7 +68,7 @@ void Player::draw(BITMAP* &buffer, int frame)
             else if (frame >= 80 && frame < 100)
                 masked_blit (bitmap, buffer, 1,80, screen_x, screen_y, 20, 20);
 		}
-		else if (direction == up_right)
+		else if (direction == Direction::up_right)
 		{
 			if( frame<20) { masked_blit( bitmap, buffer, 1,1, screen_x, screen_y, 23, 14);}
             else if( frame>=20 && frame<40) { masked_blit( bitmap, buffer, 1,16, screen_x, screen_y, 20, 18);}
@@ -76,7 +76,7 @@ void Player::draw(BITMAP* &buffer, int frame)
             else if( frame>=60 && frame<80) { masked_blit( bitmap, buffer, 1,60, screen_x, screen_y, 20, 17);}
             else if( frame>=80 && frame<100) { masked_blit( bitmap, buffer, 1,80, screen_x, screen_y, 20, 20);}
 		}
-		else if (direction == right)
+		else if (direction == Direction::right)
 		{
 			if( frame<20) {masked_blit( bitmap, buffer, 76,1, screen_x, screen_y, 14, 23);}
             else if( frame>=20 && frame<40) {masked_blit( bitmap, buffer, 76,25, screen_x, screen_y, 18, 20);}
@@ -84,7 +84,7 @@ void Player::draw(BITMAP* &buffer, int frame)
             else if( frame>=60 && frame<80) {masked_blit( bitmap, buffer, 76,67, screen_x, screen_y, 17, 20);}
             else if( frame>=80 && frame<100) {masked_blit( bitmap, buffer, 76,88, screen_x, screen_y, 26, 20);}
 		}
-		else if (direction == right_down)
+		else if (direction == Direction::right_down)
 		{
 			if( frame<20) {masked_blit( bitmap, buffer, 76,1, screen_x, screen_y, 14, 23);}
             else if( frame>=20 && frame<40) {masked_blit( bitmap, buffer, 76,25, screen_x, screen_y, 18, 20);}
@@ -92,7 +92,7 @@ void Player::draw(BITMAP* &buffer, int frame)
             else if( frame>=60 && frame<80) {masked_blit( bitmap, buffer, 76,67, screen_x, screen_y, 17, 20);}
             else if( frame>=80 && frame<100) {masked_blit( bitmap, buffer, 76,88, screen_x, screen_y, 26, 20);}
 		}
-		else if (direction == down)
+		else if (direction == Direction::down)
 		{
 			if( frame<20) { masked_blit( bitmap, buffer, 25,1, screen_x, screen_y, 23, 14);}
             else if( frame>=20 && frame<40) { masked_blit( bitmap, buffer, 25,16, screen_x, screen_y, 20, 18);}
@@ -100,7 +100,7 @@ void Player::draw(BITMAP* &buffer, int frame)
             else if( frame>=60 && frame<80) { masked_blit( bitmap, buffer, 25,60, screen_x, screen_y, 20, 17);}
             else if( frame>=80 && frame<100) { masked_blit( bitmap, buffer, 25,80, screen_x, screen_y, 20, 20);}
 		}
-		else if (direction == down_left)
+		else if (direction == Direction::down_left)
 		{
 			if( frame<20) { masked_blit( bitmap, buffer, 25,1, screen_x, screen_y, 23, 14);}
             else if( frame>=20 && frame<40) { masked_blit( bitmap, buffer, 25,16, screen_x, screen_y, 20, 18);}
@@ -108,7 +108,7 @@ void Player::draw(BITMAP* &buffer, int frame)
             else if( frame>=60 && frame<80) { masked_blit( bitmap, buffer, 25,60, screen_x, screen_y, 20, 17);}
             else if( frame>=80 && frame<100) { masked_blit( bitmap, buffer, 25,80, screen_x, screen_y, 20, 20);}
 		}
-		else if (direction == left)
+		else if (direction == Direction::left)
 		{
 			if( frame<20) {masked_blit( bitmap, buffer, 49,1, screen_x, screen_y, 14, 23);}
         	else if( frame>=20 && frame<40) {masked_blit( bitmap, buffer, 49,25, screen_x, screen_y, 18, 20);}
@@ -116,7 +116,7 @@ void Player::draw(BITMAP* &buffer, int frame)
             else if( frame>=60 && frame<80) {masked_blit( bitmap, buffer, 49,67, screen_x, screen_y, 17, 20);}
             else if( frame>=80 && frame<100) {masked_blit( bitmap, buffer, 49,88, screen_x, screen_y, 26, 20);}
 		}
-		else if (direction == left_up)
+		else if (direction == Direction::left_up)
 		{
 			if( frame<20) {masked_blit( bitmap, buffer, 49,1, screen_x, screen_y, 14, 23);}
         	else if( frame>=20 && frame<40) {masked_blit( bitmap, buffer, 49,25, screen_x, screen_y, 18, 20);}
